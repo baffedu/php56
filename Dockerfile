@@ -29,8 +29,8 @@ RUN set x=1 && \
     apk del -f .build-deps freetype-dev libpng-dev libjpeg-turbo-dev && \
     rm -rf /tmp/* /var/cache/apk/*
 
-ADD supervisor/conf.d/ /etc/supervisor.d/
-ADD nginx/conf.d/ /etc/nginx/conf.d/
+ADD supervisor /etc/supervisor.d/
+ADD nginx /etc/nginx/conf.d/
 
 EXPOSE 80
 
