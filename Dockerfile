@@ -18,7 +18,7 @@ RUN set x=1 && \
     pecl install imagick && \
     docker-php-ext-install -j$(nproc) gd mysql mysqli pdo_mysql bcmath zip opcache mcrypt && \
     docker-php-ext-enable imagick && \
-    wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer && \
+    wget https://getcomposer.org/composer.phar -O /usr/local/bin/composer && \
     chmod a+x /usr/local/bin/composer && \
     apk add --no-cache --virtual .nginx nginx && \
     mkdir -p /run/nginx && \
