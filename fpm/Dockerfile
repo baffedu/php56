@@ -8,6 +8,7 @@ RUN set x=1 && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev imagemagick-dev libtool && \
     apk add --no-cache --virtual .tools supervisor rsync && \
     apk add --no-cache --virtual .imagick-runtime-deps imagemagick && \
+    apk add --no-cache --virtual .mcrypt libmcrypt-dev
     apk add --no-cache --virtual .gd freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev && \
     docker-php-ext-configure gd \
         --with-gd \
@@ -15,7 +16,7 @@ RUN set x=1 && \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ && \
     pecl install imagick && \
-    docker-php-ext-install -j$(nproc) gd mysql mysqli pdo_mysql bcmath zip opcache && \
+    docker-php-ext-install -j$(nproc) gd mysql mysqli pdo_mysql bcmath zip opcache mcrypt && \
     docker-php-ext-enable imagick && \
     wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer && \
     chmod a+x /usr/local/bin/composer && \
