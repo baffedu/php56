@@ -8,7 +8,7 @@ RUN set x=1 && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev imagemagick-dev libtool && \
     apk add --no-cache --virtual .tools supervisor rsync && \
     apk add --no-cache --virtual .imagick-runtime-deps imagemagick && \
-    apk add --no-cache --virtual .mcrypt libmcrypt-dev
+    apk add --no-cache --virtual .mcrypt libmcrypt-dev && \
     apk add --no-cache --virtual .gd freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev && \
     docker-php-ext-configure gd \
         --with-gd \
